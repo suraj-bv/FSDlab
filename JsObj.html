@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Object</title>
+</head>
+<body>
+    <div class="student-info" id="studentInfo"></div>
+
+    <script>
+        let student = {
+            name : "John Doe",
+            grade :85,
+            subjects : ["Math", "Science", "English"],
+            displayInfo : function(){
+                console.log("Student Name: ",this.name);
+                console.log("Grade: ",this.grade);
+                console.log("Subjects: ",this.subjects.join(","));
+            }
+        };
+
+        function addGradeProperty(student) {
+            const propertyName = student.grade >= 60 ? "Passed" : "Failed";
+            student[propertyName] = true;
+        }
+
+        console.log("<==========Student Information==========>");
+        student.displayInfo();
+        addGradeProperty(student);
+        console.log("<==========Student Object Details==========>");
+        Object.keys(student).forEach(key => {
+            if (typeof student[key] !== "function") {
+                console.log(key, ":", student[key]);
+            }
+        });
+    </script>
+</body>
+</html>

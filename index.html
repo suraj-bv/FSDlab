@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String operations</title>
+</head>
+<style>
+    body { 
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 20px;
+    }
+    input, button {
+        margin: 5px;
+        padding: 10px;
+    }
+</style>
+<body>
+    <h2>String operations</h2>
+    <label for="userInput">Enter a String: </label>
+    <input type="text" id="userInput">
+    <button onclick="processString()">Submit</button>
+
+
+    <h3>Results</h3>
+    <p id="lengthResult"></p>
+    <p id="extractResult"></p>
+    <p id="replaceresult"></p>
+    <p id="palindromeResult"></p>
+
+    <script>
+        function processString(){
+            let str = document.getElementById("userInput").value;
+            document.getElementById("lengthResult").innerText = "Length of string "+str.length;
+            let jsIndex = str.indexOf("JavaScript");
+            let extracted = jsIndex !== -1 ? str.substring(jsIndex, jsIndex + 10) : "NOT FOUND";
+            document.getElementById("extractResult").innerText = 'Extracted word: '+ extracted;
+            let replaceStr = str.replace('JavaScript', 'Python');
+            document.getElementById("replaceresult").innerText = 'Replaced String: '+ replaceStr;
+            document.getElementById('palindromeResult').innerText = checkPalindrome(replaceStr) ? "This string is  PALINDROME." : "This string is NOT a PALINDROME";
+
+        }
+
+        function checkPalindrome(str) {
+            let cleanedStr = str.toLowerCase().replace(/[^a-z0-9]/g, "");
+            let reversedStr = cleanedStr.split("").reverse().join("");
+            return cleanedStr === reversedStr;
+        }
+    </script>
+</body>
+</html>
