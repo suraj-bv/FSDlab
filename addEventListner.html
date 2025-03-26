@@ -6,9 +6,11 @@
     <title>EventListner in JS</title>
     <style>
         #image {
-            width: 300px;
+            width: 200px;
             height: 200px;
             border: 2px solid black;
+            border-radius: 50%;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -27,6 +29,7 @@
 
         document.getElementById("image").addEventListener("mouseover", function() {
             this.style.borderColor = "red";
+            console.log("Mouseover image");
         });
 
         document.getElementById("image").addEventListener("mouseout", function() {
