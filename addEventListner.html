@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventListner in JS</title>
+    <style>
+        #image {
+            width: 300px;
+            height: 200px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Listener Demo</h1>
+    <button id="clickMe">Click Me!!</button>
+    <br><br>
+    <img id="image" src="img/forget-me-not-6522362.jpg" alt="Image">
+    <br><br>
+    <p>Press any key to see it logged in the console</p>
+
+    <script>
+        document.getElementById("clickMe").addEventListener("click", function() {
+            console.log("Button clicked");
+        });
+
+        document.getElementById("image").addEventListener("mouseover", function() {
+            this.style.borderColor = "red";
+        });
+
+        document.getElementById("image").addEventListener("mouseout", function() {
+            this.style.borderColor = "black";
+        });
+
+        document.addEventListener("keydown", function(event){
+            console.log("Key pressed:", event.key);
+        });
+    </script>
+</body>
+</html>
